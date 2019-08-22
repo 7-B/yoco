@@ -13,16 +13,18 @@
 # Weekly records(Week1~Week5)   
  ### 1. Week1  
 - Test opensource style trnasfer  [Deep Photo Style Transfer ](https://arxiv.org/abs/1703.07511)[(Github repo)](https://github.com/luanfujun/deep-photo-styletransfer)
-<img src="data/base.jpg" width="400"> 
-<img src="data/target.jpg" width="300">  
-- ### Result
-<img src="data/week1_result.gif" width="300">  
-- 문제점 : 얼굴,피부,머리,옷,배경 등을 Segmentation시킬 필요가 있음, 노이즈 제거 등  
-- #### 회의기록  
-1.하고싶은바(구체적으로)
-  - 내사진(input) -> 컬러링북(output)  
-  - 차별점 : 그냥 선따기만 하는게 아니고, 일정한 패턴이 폐곡선을 구성하여 시중 컬러링 북과 같은 느낌을 내는 것이 목표.  
-  - GAN으로 1차 이미지 생성(Draft) -> Edge Detection/Denoising autoencoder 와 같은 기법으로 다듬어서 결과 이미지 생성  
+<img src="data/base.jpg" width="400"><img src="data/target.jpg" width="300">  
+
+- **Result**
+<img src="data/week1_result.gif" width="300">   
+
+- __문제점__ : 얼굴,피부,머리,옷,배경 등을 Segmentation시킬 필요가 있음, 노이즈 제거 등    
+---  
+- ### 회의기록    
+1.하고싶은바(구체적으로)  
+  - 내사진(input) -> 컬러링북(output)   
+  - 차별점 : 그냥 선따기만 하는게 아니고, 일정한 패턴이 폐곡선을 구성하여 시중 컬러링 북과 같은 느낌을 내는 것이 목표.   
+  - GAN으로 1차 이미지 생성(Draft) -> Edge Detection/Denoising autoencoder 와 같은 기법으로 다듬어서 결과 이미지 생성   
 
 2.(예상)데이터셋 구축 & 모델링 방법 제안  
   - 3 Suggestions    
@@ -37,10 +39,10 @@
 - Input 사진 제한해야할 것으로 예상됨(ex: 사람 상반신 사진)   
 - (추후)Edge Detection/Denoising autoencoder 와 같은 후처리 기법 조사 필요    
 
-4.더 자세한 계획/역할분담은 내일(8월23일, 금) 자문 받고 결정
+4.더 자세한 계획/역할분담은 내일(8월23일, 금) 자문 받고 결정  
 
-5. 매 주단위로 계획 세워서 실천합시다~ 화이팅~!
-
+5. 매 주단위로 계획 세워서 실천합시다~ 화이팅~!  
+---  
 ## Collaborators  
 - 김덕민  
 - 김  준  
