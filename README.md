@@ -12,7 +12,7 @@
 
 # Weekly records(Week1~Week5)   
  ### 1. Week1  
-- Test opensource style trnasfer  [Deep Photo Style Transfer ](https://arxiv.org/abs/1703.07511)[(Github repo)](https://github.com/luanfujun/deep-photo-styletransfer)   
+- Test opensource style transfer  [Deep Photo Style Transfer ](https://arxiv.org/abs/1703.07511)[(Github repo)](https://github.com/luanfujun/deep-photo-styletransfer)   
 <img src="data/base.jpg" width="250"> **+** <img src="data/suzy.png" width="200">  **=**   <img src="data/week1_result.gif" width="200">     
 
 - __문제점__ : 얼굴,피부,머리,옷,배경 등을 Segmentation시킬 필요가 있음, 노이즈 제거 등    
