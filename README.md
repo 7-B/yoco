@@ -20,7 +20,6 @@ Test opensource style trnasfer  [Deep Photo Style Transfer ](https://arxiv.org/a
 
 
 ## Collaborators  
-
 - 김덕민  
 - 김  준  
 - 노희태  
@@ -28,4 +27,3 @@ Test opensource style trnasfer  [Deep Photo Style Transfer ](https://arxiv.org/a
 - 이세원  
 - 진예진  
 - 한미희  
-
