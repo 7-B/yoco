@@ -8,7 +8,9 @@
 -  
 -   
 
-> # Week1  
+
+# Weekly records(Week1~Week5)   
+ ### 1. Week1  
 Test opensource style trnasfer  [Deep Photo Style Transfer ](https://arxiv.org/abs/1703.07511)[(Github repo)](https://github.com/luanfujun/deep-photo-styletransfer)
 <img src="data/base.jpg" width="400"> 
 <img src="data/target.jpg" width="300">  
