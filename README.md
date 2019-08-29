@@ -10,8 +10,11 @@
 -   
 
 
-# Weekly records(Week1~Week5)   
- ### 1. Week1  
+# Weekly records(Week1~Week5)    
+ 
+<details>
+<summary> Week1 </summary>
+<div markdown="1">
 - Test opensource style transfer  [Deep Photo Style Transfer ](https://arxiv.org/abs/1703.07511)[(Github repo)](https://github.com/luanfujun/deep-photo-styletransfer)   
 
 > <img src="data/base1.jpg" width="200"> **+** <img src="data/suzy.png" width="150">  **=**   <img src="data/week1_suzy_result_.gif" width="150">     
@@ -50,8 +53,16 @@
 
 **4. 더 자세한 계획/역할분담은 연구실 자문 받고 결정**   
 
-**5. 매 주단위로 계획 세워서 실천합시다~ 화이팅~!**   
+</div>
+</details>
+
 ---  
+<details>
+<summary> Week2 </summary>
+<div markdown="1">
+ 
+</div>
+</details>
 ## Collaborators  
 - 김덕민  
 - 김  준  
