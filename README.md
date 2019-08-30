@@ -59,15 +59,43 @@
 ---  
 <details>
 <summary> Week2 </summary>
-<div markdown="1">
+<div markdown="1">   
+ 
+ - 정보통신연구소 **이영현** 연구원님(dudgus1727@postech.ac.kr)자문(8/28 수요일 오후 1시 30분)    
+   - 굳이 GAN으로 안해도 될 것 같다. CNN 세개를 병렬적으로 하면 될 것 같다.(예시: Style CNN, Result CNN, Input CNN)    
+   - 모델을 바닥부터 만드는 것은 비추천이고, pre-trained 모델 사용 권유.  
+   - 색깔빼거나 엣지따는 작업을 따로 안해도 될 수도 있는데, 일단 해봐야지 알 것 같다.  
+   - 세그멘테이션이 잘 되는것이 가장 중요하다. 세그멘테이션 네트워크로는 U-Net 이 가장 많이 쓰인다. [U-Net 이란?](https://modulabs-biomedical.github.io/U_Net)  
+   이미지 네트워크는 ImageNet을 추천한다. 가장 범용적인 Feature map 추출 네트워크이다.   
+   - 어떤 데이터셋이 필요할지는 생각을 해봐야겠지만, 일단 짝(인물사진<->컬러링북사진)으로 맞춰진 데이터까지는 필요 없을 것 같다.  
+   - 그 외 기억나는 내용 있으면 추가 바람.
+   
+ - 희태가 찾은 자료 : 
+   - [Semantic Segment Style Transfer, Stanford](http://cs231n.stanford.edu/reports/2017/pdfs/404.pdf)  
+   - [Automated Deep Photo Style Transfer](https://github.com/Spenhouet/automated-deep-photo-style-transfer) -> 여기서 세그멘테이션 부분을 우리꺼에 맞게 수정하면 될 것 같음.  
+ - 일단 주말동안 딥러닝 전반적인 내용 및 CNN,이미지 세그멘테이션 등에 대해 각자 공부를 열심히 하고 월요일에 다시 달립시다. 
+ - 9/5일(월)부터 웹 개발 시작 예정. 레이아웃은 다 같이 회의로 정하고 구현은 덕민/세원 중심으로.(준,예진 서포트)   
  
 </div>
-</details>
-## Collaborators  
-- 김덕민  
-- 김  준  
-- 노희태  
-- 서유라  
-- 이세원  
-- 진예진  
-- 한미희  
+</details>    
+---  
+<details>  
+<summary> Collaborators </summary>
+<div markdown="1"> 
+   
+- 김덕민    
+ 
+- 김   준    
+
+- 노희태    
+
+- 서유라   
+
+- 이세원   
+
+- 진예진    
+
+- 한미희
+
+</div>
+</details>  
