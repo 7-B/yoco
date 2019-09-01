@@ -45,7 +45,7 @@
 - (추후)Edge Detection/Denoising autoencoder 와 같은 후처리 기법 조사 필요  
 - [현재 Edge Detection 방법으로는 딱 이거다 라고 결정 지을 수는 없음(Controversial한 영역)](https://www.reddit.com/r/computervision/comments/8jjkjp/what_is_the_state_of_the_art_algorithm_for_edge/) -> 우리 프로젝트에 적합한 엣지검출 방법을 찾아야함  
 
-- 0824토요일  
+- 0824 토요일  
   - [mmdetection](https://github.com/open-mmlab/mmdetection)으로 인물/배경 분리 성공  
   > <img src="data/segtest.jpg" width="200">   
   - 자세한 알고리즘은 슬라이드에  
@@ -75,6 +75,46 @@
    - [Automated Deep Photo Style Transfer](https://github.com/Spenhouet/automated-deep-photo-style-transfer) -> 여기서 세그멘테이션 부분을 우리꺼에 맞게 수정하면 될 것 같음.  
  - 일단 주말동안 딥러닝 전반적인 내용 및 CNN,이미지 세그멘테이션 등에 대해 각자 공부를 열심히 하고 월요일에 다시 달립시다. 
  - 9/5일(월)부터 웹 개발 시작 예정. 레이아웃은 다 같이 회의로 정하고 구현은 덕민/세원 중심으로.(준,예진 서포트)   
+
+ - 0901 일요일  
+   - [sketchKeras](https://github.com/lllyasviel/sketchKeras)와 [sketch_simplification](https://github.com/bobbens/sketch_simplification)소스코드를 main.py에서 한번에 구동되도록 통합.  
+   - 선따는 과정은 크게 다음과 같다.  
+     - 원본이미지 -> 스케치화된 이미지 -> 노이즈제거된 선따기된 이미지  
+     <img src="data/test1.png" height="200">  
+   - ### **사용법**  
+   1. 현재 저장소를 Clone 받는다.
+   ```
+   git clone https://github.com/7-B/yoco.git
+   ```
+   2. 필요한 Package들을 받는다.(Keras, Pytorch 등...단, Pytorch는 반드시 version 0.4.1 이어야 함.)
+   ```
+   conda install -r requirements.txt
+   ```
+   3. sketchKeras를 구동할 Model을 다운받는다(약 200MB).  
+   [Click here to download](https://github.com/lllyasviel/sketchKeras/releases/download/0.1/mod.h5)  
+     
+   4. sketch_simplification을 구동할 Model을 다운받는다(약 300MB).
+   ```
+   bash download_models.sh
+   ```
+   
+   5. 다음 명령어로 실행한다.
+   ```   
+   python main.py --img <Image File Name>
+   ```  
+   6. 그럼 현재 경로에 raw.jpg, sketchKeras.jpg, out.png 이미지 파일들이 생성된다.  
+   - **raw.jpg** : 원본이미지를 openCV가 사용하도록 생성한 이미지 파일.  
+   - **sketchKeras.jpg** : raw.jpg를 sketchKeras를 구동한 결과물(스케치화된 이미지).  
+   - **out.png** : sketchKeras.jpg를 simplify시켜 노이즈를 제거하고 깨끗하게 만든 이미지.    
+   
+   - ### 문제점  
+   <img src="data/test1.png" height="200">  
+   <img src="data/test2.png" height="200">  
+   
+   - 위 그림과 같이, 원본 사진의 해상도가 작을경우 픽셀이 깨지는 경우가 있는데, 상용화단계가 아니면 신경쓰지 않아도 될 것 같다. 
+   - 모델 파일(mod.h5, model_gan.t7 등)의 용량이 아주 큰데 웹에 어떻게 올리지?  
+   - 좀 느리다.(10초 정도 걸림) 일단은 빠르게 구동해보려고 GPU 사용하지 않도록 세팅 되어있음.
+ 
  
 </div>
 </details>    
