@@ -82,16 +82,20 @@
      - 원본이미지 -> 스케치화된 이미지 -> 노이즈제거된 선따기된 이미지  
      <img src="data/test1.png" height="200">  
    - ### **사용법**  
+   Environment : Anaconda Virtual Environment  
+   Python Version : Python 3.6.9 (3점대 버전이면 크게 상관없음)  
+   **Anaconda 가상환경에서 하는것을 권장합니다.**    
+   
    1. 현재 저장소를 Clone 받고, develop branch로 checkout 한다.
    ```
    git clone https://github.com/7-B/yoco.git
    git checkout develop
    ```
-   2. 필요한 Package들을 받는다.(Keras, Pytorch 등...단, Pytorch는 반드시 version 0.4.1 이어야 함.)
+   2. 필요한 Package들을 받는다.(Keras, Pytorch, openCV 등...단, Pytorch는 반드시 version 0.4.1 이어야 함.)
    ```
-   conda install -r requirements.txt
+   pip install -r requirements.txt
    ```
-   3. yoco경로에 sketchKeras를 구동할 Model을 다운받는다(약 200MB).  
+   3. 프로젝트 경로에 sketchKeras를 구동할 Model을 다운받는다(약 200MB).  
    [Click here to download](https://github.com/lllyasviel/sketchKeras/releases/download/0.1/mod.h5)  
      
    4. sh파일을 실행시켜 sketch_simplification을 구동할 Model을 다운받는다(약 300MB).
@@ -102,10 +106,11 @@
    5. 다음 명령어로 실행한다.
    ```   
    python main.py --img <Image File Name>
+   ex) python main.py --img big_ggo.jpg
    ```  
    6. 그럼 현재 경로에 raw.jpg, sketchKeras.jpg, out.png 이미지 파일들이 생성된다.  
-   - **raw.jpg** : 원본이미지를 openCV가 사용하도록 생성한 이미지 파일.  
-   - **sketchKeras.jpg** : raw.jpg를 sketchKeras를 구동한 결과물(스케치화된 이미지).  
+   - **raw.jpg** : 원본이미지를 openCV가 사용하도록 생성한 이미지 파일.(원본 이미지와 같음)  
+   - **sketchKeras.jpg** : raw.jpg를 sketchKeras 구동한 결과물(스케치화된 이미지).  
    - **out.png** : sketchKeras.jpg를 simplify시켜 노이즈를 제거하고 깨끗하게 만든 이미지.    
    
    - ### 문제점  
