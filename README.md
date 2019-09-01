@@ -82,18 +82,19 @@
      - 원본이미지 -> 스케치화된 이미지 -> 노이즈제거된 선따기된 이미지  
      <img src="data/test1.png" height="200">  
    - ### **사용법**  
-   1. 현재 저장소를 Clone 받는다.
+   1. 현재 저장소를 Clone 받고, develop branch로 checkout 한다.
    ```
    git clone https://github.com/7-B/yoco.git
+   git checkout develop
    ```
    2. 필요한 Package들을 받는다.(Keras, Pytorch 등...단, Pytorch는 반드시 version 0.4.1 이어야 함.)
    ```
    conda install -r requirements.txt
    ```
-   3. sketchKeras를 구동할 Model을 다운받는다(약 200MB).  
+   3. yoco경로에 sketchKeras를 구동할 Model을 다운받는다(약 200MB).  
    [Click here to download](https://github.com/lllyasviel/sketchKeras/releases/download/0.1/mod.h5)  
      
-   4. sketch_simplification을 구동할 Model을 다운받는다(약 300MB).
+   4. sh파일을 실행시켜 sketch_simplification을 구동할 Model을 다운받는다(약 300MB).
    ```
    bash download_models.sh
    ```
@@ -113,8 +114,17 @@
    
    - 위 그림과 같이, 원본 사진의 해상도가 작을경우 픽셀이 깨지는 경우가 있는데, 상용화단계가 아니면 신경쓰지 않아도 될 것 같다. 
    - 모델 파일(mod.h5, model_gan.t7 등)의 용량이 아주 큰데 웹에 어떻게 올리지?  
-   - 좀 느리다.(10초 정도 걸림) 일단은 빠르게 구동해보려고 GPU 사용하지 않도록 세팅 되어있음.
- 
+   - 좀 느리다.(10초 정도 걸림) 일단은 빠르게 구동해보려고 GPU 사용하지 않도록 세팅 되어있음.  
+   
+   - ### Next ToDo  
+   - sketchKeras와 sketch_simplification 의 논문이나 프로젝트페이퍼, 소스코드를 자세히 읽어보고 완전이 파악한 후 커스터마이징 할 부분이 있다면 할 수 있도록 해야함.(파라미터조정, 파일입출력, 함수간의 호출 관계 등)    
+   - 선딴 결과물에 패턴 입히는게 관건이고, 여기서부터가 머신러닝/딥러닝을 우리가 구현해야할 핵심적인 부분  
+   - 이상적인 계획  
+   <img src="data/patt_plan.png" height="500">   
+   - Segmentation이 잘 되어야 하고, 나눠진 구역을 구분하면서 적절한 패턴을 예쁘게 입히는게 가장 중요함.  
+   - 무슨 모델로 어떻게 학습해서 어떻게 적용해야하지...?  -> 고민....  
+   - 가능하다면 GPU자원을 쓰면 훨씬 빠를 것 같은데, 코드를 좀 손 봐야함. 나중에 하기.   
+   
  
 </div>
 </details>    
