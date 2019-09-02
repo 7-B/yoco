@@ -76,7 +76,7 @@
  - 일단 주말동안 딥러닝 전반적인 내용 및 CNN,이미지 세그멘테이션 등에 대해 각자 공부를 열심히 하고 월요일에 다시 달립시다. 
  - 9/5일(월)부터 웹 개발 시작 예정. 레이아웃은 다 같이 회의로 정하고 구현은 덕민/세원 중심으로.(준,예진 서포트)   
 
- - 0901 일요일  
+ - #### 0901 일요일  
    - [sketchKeras](https://github.com/lllyasviel/sketchKeras)와 [sketch_simplification](https://github.com/bobbens/sketch_simplification)소스코드를 main.py에서 한번에 구동되도록 통합.  
    - 선따는 과정은 크게 다음과 같다.  
      - 원본이미지 -> 스케치화된 이미지 -> 노이즈제거된 선따기된 이미지  
@@ -130,8 +130,32 @@
    - Segmentation이 잘 되어야 하고, 나눠진 구역을 구분하면서 적절한 패턴을 예쁘게 입히는게 가장 중요함.  
    - 무슨 모델로 어떻게 학습해서 어떻게 적용해야하지...?  -> 고민....  
    - 가능하다면 GPU자원을 쓰면 훨씬 빠를 것 같은데, 코드를 좀 손 봐야함. 나중에 하기.   
+
+   
    
  
+</div>
+</details>    
+
+---  
+
+<details>
+<summary> Week3 </summary>
+<div markdown="1">
+ 
+ - #### 0902 월요일  
+    - **Web**
+      - 세원, 덕민 개발 시작. 연습 충분히 한 후 깃허브 저장소 따로 만들어서 진행.    
+      - 레이아웃은 최대한 간단히 하고, 사진 올리면 클라이언트의 이메일로 결과이미지 보내주는 로직까지 구현 목표   
+      - 실시간으로 결과이미지 출력하는게 어려울 것 같으니 일단은 이메일 발송으로 구현하기       
+      - 나중에 여유 되면 Docker 활용하여 GPU 사용할 수 있도록 만들기(지속가능성 점수 따기 좋을듯)  
+    - **Segmentation**  
+      - [Human Parsing SOTA 랭킹 사이트](https://paperswithcode.com/task/human-parsing)  
+        - 희태 : [Instance-level Human Parsing via Part Grouping Network](https://github.com/Engineering-Course/CIHP_PGN) 모델 트레이닝 중  
+        - 준 : [Macro-Micro Adversarial Network for Human Parsing Pre-trained model](https://github.com/RoyalVane/MMAN) 로 시도해보고 있는데 CUDA Error 뜨면서 잘 안됨  
+        - 예진 : [Multi-Human-Parsing_MHP](https://github.com/ZhaoJ9014/Multi-Human-Parsing) 해봤는데 잘 안됨  
+        
+  
 </div>
 </details>    
 
