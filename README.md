@@ -151,11 +151,46 @@
       - 나중에 여유 되면 Docker 활용하여 GPU 사용할 수 있도록 만들기(지속가능성 점수 따기 좋을듯)  
     - **Segmentation**  
       - [Human Parsing SOTA 랭킹 사이트](https://paperswithcode.com/task/human-parsing)  
-        - 희태 : [Instance-level Human Parsing via Part Grouping Network](https://github.com/Engineering-Course/CIHP_PGN) 모델 트레이닝 중  
-        - 준 : [Macro-Micro Adversarial Network for Human Parsing Pre-trained model](https://github.com/RoyalVane/MMAN) 로 시도해보고 있는데 CUDA Error 뜨면서 잘 안됨  
+        - 희태 : [Instance-level Human Parsing via Part Grouping Network](https://github.com/Engineering-Course/CIHP_PGN) 모델 트레이닝 중
+        - 준 : [Macro-Micro Adversarial Network for Human Parsing Pre-trained model](https://github.com/RoyalVane/MMAN) 
+          - CUDA Version 어쩌고 오류 남          
         - 예진 : [Multi-Human-Parsing_MHP](https://github.com/ZhaoJ9014/Multi-Human-Parsing) 해봤는데 잘 안됨  
         
-  
+
+ - #### 0903 화요일  
+     - **Web**
+       - 거의 다 함(?)    
+    - **Segmentation**  
+      - 희태 : ~~[Instance-level Human Parsing via Part Grouping Network](https://github.com/Engineering-Course/CIHP_PGN) 모델 트레이닝 중 -> 잘 안됨(결과 이상??)~~    
+        - [CIHP_PGN](https://github.com/Engineering-Course/CIHP_PGN) Matlab 까는중
+      - 준 : [Macro-Micro Adversarial Network for Human Parsing](https://github.com/RoyalVane/MMAN)  
+        - PyTorch 0.3.1 버젼으로 학습하는 코드라서 우리꺼랑 안맞음(SketchSimplify할때 PyTorch 0.4.1 버전이라 충돌 남)  
+        - **PyTorch 0.4.1 cuda 9.0 설치방법(PyTorch 0.4.1에서 cuda 10.0은 호환안됨)**  
+          [Anaconda에서 CUDA, cudnn 사용 및 환경변수 설정법](https://light-tree.tistory.com/59)  
+          CUDA 9.0을 우선 깔고(위 링크 참고, NVIDIA Driver는 우리 컴에 깔려있는 걸로 설치해야함 안그럼 무한루프~), 
+          그에 맞는 PyTorch 0.4.1을 설치한다.   
+          ```
+          $ conda install pytorch=0.4.1 cuda90 -c pytorch
+          ```  
+          cuda 9.0이 잘 깔렸는지 경로에 가서 확인한다.  
+          ```
+          $ cd /usr/local/cuda-9.0
+          ```  
+          환경변수 설정을 해준다.  
+          ```
+          export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-9.0/lib64"
+          export PATH=/usr/local/cuda-9.0/bin:/$PATH
+          ```  
+          nvcc 명령어로 CUDA 9.0인지 확인 한다.  
+          ```
+          nvcc --version
+          ```  
+          이걸로 Sketch Simplification도 GPU로 돌려볼 예정  
+       
+       - 예진 : [Multi-Human-Parsing_MHP](https://github.com/ZhaoJ9014/Multi-Human-Parsing) 해봤는데 잘 안됨  
+         다른것도 시도 중  
+        
+
 </div>
 </details>    
 
