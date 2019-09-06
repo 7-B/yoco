@@ -17,9 +17,9 @@
 <div markdown="1">
 - Test opensource style transfer  [Deep Photo Style Transfer ](https://arxiv.org/abs/1703.07511)[(Github repo)](https://github.com/luanfujun/deep-photo-styletransfer)   
 
-> <img src="data/base1.jpg" width="200"> **+** <img src="data/suzy.png" width="150">  **=**   <img src="data/week1_suzy_result_.gif" width="150">     
+> <img src="img/base1.jpg" width="200"> **+** <img src="img/suzy.png" width="150">  **=**   <img src="img/week1_suzy_result_.gif" width="150">     
 
-> <img src="data/base2.png" width="200"> **+** <img src="data/bird.jpg" width="150">  **=**   <img src="data/week1_bird_result_.gif" width="150">     
+> <img src="img/base2.png" width="200"> **+** <img src="img/bird.jpg" width="150">  **=**   <img src="img/week1_bird_result_.gif" width="150">     
 
 
 - __문제점__ : 얼굴,피부,머리,옷,배경 등을 Segmentation시킬 필요가 있음, 노이즈 제거 등    
@@ -27,7 +27,7 @@
 - ### 회의기록    
 **1. 목표(구체적으로)**   
   - 내사진(input) -> 컬러링북(output)   
-  **Our Goal :** <img src="data/moana_raw.jpg" width="300"> **->** <img src="data/moana_converted.png" width="200"> 
+  **Our Goal :** <img src="img/moana_raw.jpg" width="300"> **->** <img src="img/moana_converted.png" width="200"> 
   - 차별점 : 그냥 선따기만 하는게 아니고, 일정한 패턴들이 폐곡선을 구성하여 시중 컬러링 북과 같은 느낌을 내는 것.   
   - GAN/Image Segmentation등 으로 1차 이미지 생성 -> Edge Detection/Denoising autoencoder 와 같은 기법으로 다듬어서 결과 이미지 생성   
 
@@ -47,7 +47,7 @@
 
 - 0824 토요일  
   - [mmdetection](https://github.com/open-mmlab/mmdetection)으로 인물/배경 분리 성공  
-  > <img src="data/segtest.jpg" width="200">   
+  > <img src="img/segtest.jpg" width="200">   
   - 자세한 알고리즘은 슬라이드에  
   - 선을 딴 이미지에다가 패턴을 합성할 때에 어떤 기술을 적용해야 하는지 의문. -> 당장은 GAN이 떠오르긴 하지만, GAN은 연속적인 명암 및 색상을 가진 fake Image를 생성하는 기술인 것 같은데, line image -> Patterned line image인 우리 프로젝트에 GAN을 이용하는것이 맞는건가?  
 
@@ -80,7 +80,7 @@
    - [sketchKeras](https://github.com/lllyasviel/sketchKeras)와 [sketch_simplification](https://github.com/bobbens/sketch_simplification)소스코드를 main.py에서 한번에 구동되도록 통합.  
    - 선따는 과정은 크게 다음과 같다.  
      - 원본이미지 -> 스케치화된 이미지 -> 노이즈제거된 선따기된 이미지  
-     <img src="data/test1.png" height="200">  
+     <img src="img/test1.png" height="200">  
    - ### **사용법**  
    Environment : Anaconda Virtual Environment  
    Python Version : Python 3.6.9 (3점대 버전이면 크게 상관없음)  
@@ -114,8 +114,8 @@
    - **out.png** : sketchKeras.jpg를 simplify시켜 노이즈를 제거하고 깨끗하게 만든 이미지.    
    
    - ### 문제점  
-   <img src="data/test1.png" height="200">  
-   <img src="data/test2.png" height="200">  
+   <img src="img/test1.png" height="200">  
+   <img src="img/test2.png" height="200">  
    
    - 위 그림과 같이, 원본 사진의 해상도가 작을경우 픽셀이 깨지는 경우가 있는데, 상용화단계가 아니면 신경쓰지 않아도 될 것 같다. 
    - 모델 파일(mod.h5, model_gan.t7 등)의 용량이 아주 큰데 웹에 어떻게 올리지?  
@@ -125,7 +125,7 @@
    - sketchKeras와 sketch_simplification 의 논문이나 프로젝트페이퍼, 소스코드를 자세히 읽어보고 완전이 파악한 후 커스터마이징 할 부분이 있다면 할 수 있도록 해야함.(파라미터조정, 파일입출력, 함수간의 호출 관계 등)    
    - 선딴 결과물에 패턴 입히는게 관건이고, 여기서부터가 머신러닝/딥러닝을 우리가 구현해야할 핵심적인 부분  
    - 이상적인 Patternise 계획  
-   <img src="data/patt_plan.png" height="500">   
+   <img src="img/patt_plan.png" height="500">   
    
    - Segmentation이 잘 되어야 하고, 나눠진 구역을 구분하면서 적절한 패턴을 예쁘게 입히는게 가장 중요함.  
    - 무슨 모델로 어떻게 학습해서 어떻게 적용해야하지...?  -> 고민....  
@@ -190,6 +190,33 @@
        - 예진 : [Multi-Human-Parsing_MHP](https://github.com/ZhaoJ9014/Multi-Human-Parsing) 해봤는데 잘 안됨  
          다른것도 시도 중  
         
+
+
+ - #### 0905 목요일   
+      -  SketchKeras안쓰고, 그냥 openCV로 스케치생성 후 그걸 바탕으로 Simplify함(main.py 수정). 수행시간 감소.      
+      <img src="img/cvsketch.png" height="200">   
+      
+      <img src="img/processtime.png" height="200">   
+      
+      
+      - **TODO(분업)**  
+        - 확실히 사용할 라이브러리 Github/논문 분석하면서 발표자료 및 보고서 만들 준비  
+          openCV로 엣지맵 생성, SketchSimplification
+        - 완전한 폐곡선 구현하기(일단, 현재까지 나온 엣지 이미지 만으로만 해보고 이게 잘 되면 패턴생성 후에도 적용 가능)  
+        - 세그멘테이션이미지 기반으로 패턴 입히기  
+        - 웹 배포 해보기(대용량 배포 어떻게?)  
+        - 
+        
+      - **Web**
+        - [벤치마킹용 웹 서비스](http://thecoloringbook.herokuapp.com/)    
+        - 위에 웹에선 컬러링북이 올라가 있지만 우리것은 사용자가 업로드 한 사진으로 컬러링북을 만들어서 거기에다가 색칠할 수 있도록 구현  
+        - 우선 웹에서 휴대폰 앨범에 접근하여 사진 업로드 or 촬영 하는 기능 구현하기(아이폰/갤럭시/LG폰 세 개 기종 정도 테스트 해보기)   
+    
+    - **Segmentation**  
+      - 준 : [Self-Correction-Human-Parsing](https://github.com/PeikeLi/Self-Correction-Human-Parsing)   
+        - 한 사람에 대해 세그멘테이션 잘 됨     
+         <img src="img/seg_test.png" height="200">   
+        - main.py에 합치는 작업 예정  
 
 </div>
 </details>    
