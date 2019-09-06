@@ -196,7 +196,7 @@
       -  SketchKeras안쓰고, 그냥 openCV로 스케치생성 후 그걸 바탕으로 Simplify함(main.py 수정). 수행시간 감소.      
       <img src="img/cvsketch.png" height="200">   
       
-      <img src="img/processtime.png" height="200">   
+      <img src="img/processtime.png" height="100">   
       
       
       - **TODO(분업)**  
@@ -215,7 +215,8 @@
     - **Segmentation**  
       - 준 : [Self-Correction-Human-Parsing](https://github.com/PeikeLi/Self-Correction-Human-Parsing)   
         - 한 사람에 대해 세그멘테이션 잘 됨     
-         <img src="img/seg_test.png" height="200">   
+         <img src="img/seg_test.png" height="200">  
+         
         - main.py에 합치는 작업 예정  
 
 </div>
