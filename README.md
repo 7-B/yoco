@@ -210,7 +210,8 @@
       - **Web**
         - [벤치마킹용 웹 서비스](http://thecoloringbook.herokuapp.com/),  [Github](https://github.com/suneric1/the-coloring-book)   
         - 위에 웹에선 컬러링북이 올라가 있지만 우리것은 사용자가 업로드 한 사진으로 컬러링북을 만들어서 거기에다가 색칠할 수 있도록 구현  
-        - 우선 웹에서 휴대폰 앨범에 접근하여 사진 업로드 or 촬영 하는 기능 구현하기(아이폰/갤럭시/LG폰 세 개 기종 정도 테스트 해보기)   
+        - 우선 웹에서 휴대폰 앨범에 접근하여 사진 업로드 or 촬영 하는 기능 구현하기(아이폰/갤럭시/LG폰 세 개 기종 정도 테스트 해보기)
+        - 업데이트중...
     
     - **Segmentation**  
       - 준 : [Self-Correction-Human-Parsing](https://github.com/PeikeLi/Self-Correction-Human-Parsing)   
