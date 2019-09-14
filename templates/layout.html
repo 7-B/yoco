@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Project YOCO</title>
+  {{ dropzone.load() }}
+  {{ dropzone.config(max_files=1, timeout=10000, default_message='Drop files here or Click to upload!')}}
+  {{ dropzone.style('border: 5px dashed #CCCCCC; margin: 10%; min-height: 200px;') }}
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://crispiness.github.io/Project-YOCO_WEB/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://crispiness.github.io/Project-YOCO_WEB/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="https://crispiness.github.io/Project-YOCO_WEB/static/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="https://crispiness.github.io/Project-YOCO_WEB/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="https://crispiness.github.io/Project-YOCO_WEB/static/css/landing-page.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="/main">Project  <img src="https://crispiness.github.io/Project-YOCO_WEB/static/img/yoco_sm.jpeg" width = "70px"> </a>
+      <a href="/github" > <img src="https://crispiness.github.io/Project-YOCO_WEB/static/img/git.png" width = "30px"></a>
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+  <br><br>
+  <header class="text-black text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <img class="col-12 col-sm-6 col-md-8 col align-self-center" src="https://crispiness.github.io/Project-YOCO_WEB/static/YOCO_LOGO1.png">
+         <br><br>
+          <img class="col-12 col-sm-6 col-md-8 col align-self-center" src="https://crispiness.github.io/Project-YOCO_WEB/static/main.png">
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+        </div>
+      </div>
+    </div>
+  </header>
+<br><br>
+    <!-- Icons Grid -->
+  <section class=" bg-light text-center">
+  {% block content %}{% endblock %}
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a class="text-muted" href="#">About</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a class="text-muted" href="#">Contact</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a class="text-muted" href="#">Terms of Use</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a class="text-muted" href="#">Privacy Policy</a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0">&copy; YOCO Website 2019. All Rights Reserved.</p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-facebook fa-2x fa-fw" style="color:black"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-twitter-square fa-2x fa-fw" style="color:black"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-instagram fa-2x fa-fw" style="color:black"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://crispiness.github.io/Project-YOCO_WEB/static/vendor/jquery/jquery.min.js"></script>
+  <script src="https://crispiness.github.io/Project-YOCO_WEB/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
