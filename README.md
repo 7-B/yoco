@@ -196,7 +196,7 @@
       -  SketchKeras안쓰고, 그냥 openCV로 스케치생성 후 그걸 바탕으로 Simplify함(main.py 수정). 수행시간 감소.      
       <img src="img/cvsketch.png" height="200">   
       
-      <img src="img/processtime.png" height="200">   
+      <img src="img/processtime.png" height="100">   
       
       
       - **TODO(분업)**  
@@ -208,16 +208,62 @@
         - 
         
       - **Web**
-        - [벤치마킹용 웹 서비스](http://thecoloringbook.herokuapp.com/)    
+        - [벤치마킹용 웹 서비스](http://thecoloringbook.herokuapp.com/),  [Github](https://github.com/suneric1/the-coloring-book)   
         - 위에 웹에선 컬러링북이 올라가 있지만 우리것은 사용자가 업로드 한 사진으로 컬러링북을 만들어서 거기에다가 색칠할 수 있도록 구현  
-        - 우선 웹에서 휴대폰 앨범에 접근하여 사진 업로드 or 촬영 하는 기능 구현하기(아이폰/갤럭시/LG폰 세 개 기종 정도 테스트 해보기)   
+        - 우선 웹에서 휴대폰 앨범에 접근하여 사진 업로드 or 촬영 하는 기능 구현하기(아이폰/갤럭시/LG폰 세 개 기종 정도 테스트 해보기)
+        - 업데이트중...
     
     - **Segmentation**  
       - 준 : [Self-Correction-Human-Parsing](https://github.com/PeikeLi/Self-Correction-Human-Parsing)   
         - 한 사람에 대해 세그멘테이션 잘 됨     
-         <img src="img/seg_test.png" height="200">   
+         <img src="img/seg_test.png" height="200">  
+         
         - main.py에 합치는 작업 예정  
 
+</div>
+</details>    
+
+---  
+
+<details>
+<summary> Week4 </summary>
+<div markdown="1">
+
+ - #### 0909 월요일   
+      - **발표(유라)**  
+        - ##### 큰 그림 : 1.진행상황 / 2.웹 시연 / 3.보완점 및 계획  
+        
+        - 1.SketchKeras라는 라이브러리를 버리고(너무 무거움) 더 가벼운 openCV코드로 스케치화하는것을 구현.   
+        비교 사진  
+        전체수행시간 약 10초에서 3초대로 감소   
+        <img src="img/processtime.png" height="100">   
+      
+        - 2.Segmentation : LIP(Look Into Person) Challange 3rd한 라이브러리인 Self Correction for Human Parsing 을 사용하여 구현 성공  
+          - 해당 네트워크는 Backbone으로 ResNet을 사용  
+        - 3.웹 시연  
+          - 유라누나 사진파일 준비해 간다음 실제로 파일 올리는 과정까지 보여주기  
+          - 아직 딥러닝 모델을 웹에 올리진 않았음. 여러가지 방법 고려 중  
+          - 실시간으로 채색 할 수 있게 만드는게 목표고, 그러기 위해서는 폐곡선도 구현이 되어야 함.  
+          
+        - 4.계획  
+          - 세그멘테이션 된 결과 데이터를 기반으로 부분부분 패턴 적용하기  
+          - 실시간으로 웹에서 구현할 수 있도록 최적화 하기(최대한 가벼운 모델 사용)    
+          - 완전한 폐곡선 구현   
+          
+        - 발표필요한짤 : openCV스케치코드, SketchKeras 꼬부기결과, openCV 꼬부기결과 비교 짤, 수행시간 감소 벤치마크 측정 짤, 세그멘테이션결과짤, 웹 짤  
+        
+      - **역할 분담**  
+        - 세그멘테이션이미지 기반으로 패턴 입히기(패턴을 언제 입혀야 결과가 좋을지 잘모르니 1.원본, 2.스케치, 3.선화화 과정에서 모두 시도해보기)  - **예진, 미희**    
+        - 따로따로 구현 된 것들 main으로 통합하기(file I/O, 인자 전달, size 조절 등)  - **준**  
+        - 확실히 사용할 기술에 대해 github/논문 등 참고하여 정리  - **희태, 유라**    
+          - [Sketch_simplification](https://github.com/bobbens/sketch_simplification)  
+          - [Automated Deep Photo Style Transfer](https://arxiv.org/abs/1901.03915)  
+          - [Devil in the Details: Towards Accurate Single and Multiple Human Parsing](https://arxiv.org/abs/1809.05996)   
+          
+        - Web - **세원, 덕민**  
+        - 노이즈제거 및 완전한 폐곡선 어떻게 구현할지 R&D (Optional)   
+         
+        
 </div>
 </details>    
 
@@ -228,7 +274,7 @@
    
 - 김덕민    
  
-- 김   준    
+- 김 준    
 
 - 노희태    
 
