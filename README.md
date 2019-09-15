@@ -268,6 +268,37 @@
 </details>    
 
 ---  
+
+<details>
+<summary> Week5 </summary>
+<div markdown="1">  
+ 
+ - #### 0915 일요일   
+   - 패키지 정리 나중에 하려고 requirements.txt 삭제    
+   - 결과물 save 기능 제거(Optional인데 잘 안되서)  
+   - client 코드 web에 올림(june branch에서 작업 중)    
+   - convert.py에서 모든 변환을 거치도록 코드 통합  
+   - 사용자가 이미지를 넣으면 다음과 같이 svg 포맷으로 변환되어 화면에 출력되어 색칠 가능  
+     - .svg 파일은 static/output 경로에 저장됨. potrace 사용(추후 패키지 정리 예정)  
+     <img src="img/coloring.png" height="200">    
+     
+ - #### **문제점**  
+     - .svg변환 할때 아래처럼 선 부분에만 색칠 가능하도록 변환 되어서 수정필요함. svg 변환이 의외로 복잡.    
+     <img src="img/result.png" height="200">  
+     
+     - torch.cuda.empty_cache()했는데도 memory free가 안됨.  GPUtil 패키지로 GPU 상태 관찰 가능  
+     <img src="img/gpuleak.png" height="200">    
+   
+ - #### TODO  
+   - segmentation + patternise      
+   - README Wiki로 옮기고 새로 정리하기  
+   - 논문 정리한 것 바탕으로 발표자료 초안 작성    
+   - 보고서 초안 작성  
+   
+</div>
+</details>
+
+---  
 <details>  
 <summary> Collaborators </summary>
 <div markdown="1"> 
