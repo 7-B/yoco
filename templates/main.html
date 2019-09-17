@@ -1,0 +1,105 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<section>
+  <div class="container">
+        <div class="row">
+          <div class="mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <br><br>
+            <h3>How to Use</h3><br>
+            <h9 class="mb-10">1. 아래 상자에 변환하고자 하는 인물 사진을 넣어주세요</h9><br><br>
+            <h9 class="mb-10">2. 잠시 후 칼라링 북처럼 변환된 사진이 출력되면, 색을 칠해주세요!</h9><br><br>
+            <p class="lead mb-0">
+                {{ dropzone.create(action='main') }}
+                {{ dropzone.load_js() }}
+                {{ dropzone.config() }}
+            </p><br>
+          </div>
+        </div>
+       <!--<header class="text-black text-center">
+          <div class="overlay"></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                <form>
+                  <div class="form-row">
+                    <div class="col-12 col-md-9 mb-2 mb-md-0">
+                      <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
+                    </div>
+                    <div class="col-12 col-md-3">
+                      <button type="submit" class="btn btn-block btn-lg btn-secondary">Submit!</button>
+                      <br><br>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>-->
+  </div>
+</section>
+
+<section class="bg-white">
+<br><br><br> <br><br><br>
+</section>
+
+  <!-- Testimonials -->
+<section class="testimonials text-center bg-light">
+<div class="container">
+  <h2 class="mb-5">청년 AI/BIG DATA 7기 B반 1조</h2>
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+        <img class="img-fluid rounded-circle mb-3" src="https://crispiness.github.io/Project-YOCO_WEB/static/img/77.jpeg" alt="">
+        <h5>김준</h5>
+        <p class="font-weight-light mb-0">"흫흫흐흐"</p>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+        <img class="img-fluid rounded-circle mb-3" src="https://crispiness.github.io/Project-YOCO_WEB/static/img/22.jpeg" alt="">
+        <h5>김덕민</h5>
+        <p class="font-weight-light mb-0">"흫흫흐흐"</p>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+        <img class="img-fluid rounded-circle mb-3" src="https://crispiness.github.io/Project-YOCO_WEB/static/img/55.jpeg" alt="">
+        <h5>노희태</h5>
+        <p class="font-weight-light mb-0">"흫흫흐흐"</p>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+        <img class="img-fluid rounded-circle mb-3" src="https://crispiness.github.io/Project-YOCO_WEB/static/img/66.jpeg" alt="">
+        <h5>서유라</h5>
+        <p class="font-weight-light mb-0">"흫흫흐흐"</p>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+        <img class="img-fluid rounded-circle mb-3" src="https://crispiness.github.io/Project-YOCO_WEB/static/img/44.jpeg" alt="">
+        <h5>이세원</h5>
+        <p class="font-weight-light mb-0">"너무 즐거운 과정입니다."</p>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+        <img class="img-fluid rounded-circle mb-3" src="https://crispiness.github.io/Project-YOCO_WEB/static/img/33.jpeg" alt="">
+        <h5>진예진</h5>
+        <p class="font-weight-light mb-0">"흫흫흐흐"</p>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+        <img class="img-fluid rounded-circle mb-3" src="https://crispiness.github.io/Project-YOCO_WEB/static/img/11.jpeg" alt="">
+        <h5>한미희</h5>
+        <p class="font-weight-light mb-0">"아 쫌 그러지 말라구우"</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+{% endblock %}
