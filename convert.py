@@ -73,8 +73,10 @@ def sketch(path, imgname):
    return opImg, imgbasename
 
 
-def png2svg(pngimg): 
-   print(pngimg)
+def png2svg(pngimg, imgbasename):
+   myCmd = 'sh png2svg.sh ' + pngimg
+   os.system(myCmd)
+   '''
    pnmname = os.path.basename(pngimg).split(".")[0] + ".pnm"
    svgname = os.path.basename(pngimg).split(".")[0] + ".svg"
    os.system("convert %s %s" % (pngimg, pnmname))
@@ -84,7 +86,7 @@ def png2svg(pngimg):
    os.system("potrace -s -o %s %s" % (svgname, pnmname))
    os.remove(pnmname)
    os.remove(pngimg)
-
+   '''
 
 def simplify(sketch_np_array, imgbasename):
    t0 = time.time()
@@ -119,16 +121,8 @@ def simplify(sketch_np_array, imgbasename):
 
    pngname = imgbasename + '.png'
    save_image(pred[0],pngname)
-   
-   # Not working
-   print('GPU Usage after deleting the Tensors')
-   gpu_usage()
-
-   print('GPU Usage after emptying the cache')
-   gpu_usage()
-   
-   png2svg(pngname)
-   #svgConvert(pngname)
+      
+   png2svg(pngname, imgbasename)
    t1 = time.time()
    total = t1-t0
    print(total,"sec spent")
