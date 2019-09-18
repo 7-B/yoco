@@ -8,14 +8,10 @@ from PIL import Image
 # Check prcess time
 import time 
 import cv2
-highThresh	= 0.4
-lowThresh	= 0.1
 
 # png2svg
 # conda install -c bioconda potrace
 import os
-import argparse
-import glob
 
 def image_resize(image, width = None, height = None, inter = cv2.INTER_AREA):
     # initialize the dimensions of the image to be resized and
@@ -59,27 +55,22 @@ def sobel (img):
 
 def sketch(path, imgname):	
    # Extract img basename without extesnsion (ex: test.png -> test)
-   imgbasename = os.path.basename(imgname).split('.')[0]  
-   
+   imgbasename = os.path.basename(imgname).split('.')[0]     
    #load image
-   frame = cv2.imread(path,0)
-   
+   frame = cv2.imread(path,0)   
    # resize to prevent CUDA out of memory
-   frame = image_resize(frame,height=512)
-   
+   frame = image_resize(frame,height=2)   
    #Blur it to remove noise
    frame	= cv2.GaussianBlur(frame,(3,3),0)
-
    #make a negative image
    invImg = 255-frame
-
    #Detect edges from the input image and its negative
    edgImg0 = sobel(frame)
    edgImg1 = sobel(invImg)
    edgImg = cv2.addWeighted(edgImg0,1,edgImg1,1,0)	#different weights can be tried too
-
    #Invert the image back
-   opImg = 255-edgImg
+   opImg = edgImg
+   #opImg = 255-edgImg
    return opImg, imgbasename
 
 
@@ -94,6 +85,7 @@ def png2svg(pngimg):
    os.system("potrace -s -o %s %s" % (svgname, pnmname))
    os.remove(pnmname)
    os.remove(pngimg)
+
 
 def simplify(sketch_np_array, imgbasename):
    t0 = time.time()
@@ -112,14 +104,13 @@ def simplify(sketch_np_array, imgbasename):
    if pw!=0 or ph!=0:
       data = torch.nn.ReplicationPad2d( (0,pw,0,ph) )( data ).data
    
-  
+
    if use_cuda:
-      print("PyTorch is using CUDA")
       print("CUDA device count :",torch.cuda.device_count())
       print("GPU :",torch.cuda.get_device_name(0))
       print('Initial GPU Usage')
       gpu_usage()
-      pred = model.cuda().forward( data.cuda() ).float()
+      pred = model.cuda().forward(data.cuda()).float()
    else:
       pred = model.forward(data)
    
@@ -130,12 +121,10 @@ def simplify(sketch_np_array, imgbasename):
    save_image(pred[0],pngname)
    
    # Not working
-   del model
    print('GPU Usage after deleting the Tensors')
    gpu_usage()
 
    print('GPU Usage after emptying the cache')
-   torch.cuda.empty_cache()
    gpu_usage()
    
    png2svg(pngname)
@@ -144,12 +133,8 @@ def simplify(sketch_np_array, imgbasename):
    print(total,"sec spent")
 
 def convert_to_line(imgname):
-   
    if not os.path.exists('static/input'):
       os.mkdir('static/input')
    img_path = os.path.join('static/input', imgname)
    sketch_npArray, img_base_name = sketch(img_path, imgname)
    simplify(sketch_npArray, img_base_name) #create out.png in current directory
-
-# Test code 
-# convert_to_line('human.jpeg')
