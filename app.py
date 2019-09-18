@@ -41,6 +41,7 @@ def github():
 def coloring():
     global filename
     filename = filename.split('.')[0] + '.svg'
+    #filename = 'dm.svg'
     filename = os.path.join('output/',filename)
     return render_template('coloring.html', file_name = filename)
 

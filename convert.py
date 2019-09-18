@@ -59,7 +59,7 @@ def sketch(path, imgname):
    #load image
    frame = cv2.imread(path,0)   
    # resize to prevent CUDA out of memory
-   frame = image_resize(frame,height=2)   
+   frame = image_resize(frame,height=512) 
    #Blur it to remove noise
    frame	= cv2.GaussianBlur(frame,(3,3),0)
    #make a negative image
@@ -69,8 +69,7 @@ def sketch(path, imgname):
    edgImg1 = sobel(invImg)
    edgImg = cv2.addWeighted(edgImg0,1,edgImg1,1,0)	#different weights can be tried too
    #Invert the image back
-   opImg = edgImg
-   #opImg = 255-edgImg
+   opImg = 255-edgImg
    return opImg, imgbasename
 
 
@@ -81,7 +80,7 @@ def png2svg(pngimg):
    os.system("convert %s %s" % (pngimg, pnmname))
    if not os.path.exists('static/output'):
       os.mkdir('static/output')
-   svgname = os.path.join('static/output', svgname)
+   svgname ='static/output/' + svgname
    os.system("potrace -s -o %s %s" % (svgname, pnmname))
    os.remove(pnmname)
    os.remove(pngimg)
@@ -110,7 +109,8 @@ def simplify(sketch_np_array, imgbasename):
       print("GPU :",torch.cuda.get_device_name(0))
       print('Initial GPU Usage')
       gpu_usage()
-      pred = model.cuda().forward(data.cuda()).float()
+      #pred = model.cuda().forward(data.cuda()).float()
+      pred = model.forward(data)
    else:
       pred = model.forward(data)
    
@@ -128,6 +128,7 @@ def simplify(sketch_np_array, imgbasename):
    gpu_usage()
    
    png2svg(pngname)
+   #svgConvert(pngname)
    t1 = time.time()
    total = t1-t0
    print(total,"sec spent")
