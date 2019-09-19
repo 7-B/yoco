@@ -54,6 +54,10 @@ def sobel (img):
 	return cv2.bitwise_or(opImgx,opImgy)	#does a bitwise OR of pixel values at each pixel
 
 def sketch(path, imgname):	
+   '''
+   이미지를 Sketch화 시켜주는 openCV 필터
+   Gaussian, Sobel Kernel 사용
+   '''
    # Extract img basename without extesnsion (ex: test.png -> test)
    imgbasename = os.path.basename(imgname).split('.')[0]     
    #load image
@@ -74,19 +78,13 @@ def sketch(path, imgname):
 
 
 def png2svg(pngimg, imgbasename):
+   '''
+   png 이미지를 svg 포맷으로 변경해주는 코드
+   os에 접근하여 sh파일을 실행시킨다.
+   '''
    myCmd = 'sh png2svg.sh ' + pngimg
    os.system(myCmd)
-   '''
-   pnmname = os.path.basename(pngimg).split(".")[0] + ".pnm"
-   svgname = os.path.basename(pngimg).split(".")[0] + ".svg"
-   os.system("convert %s %s" % (pngimg, pnmname))
-   if not os.path.exists('static/output'):
-      os.mkdir('static/output')
-   svgname ='static/output/' + svgname
-   os.system("potrace -s -o %s %s" % (svgname, pnmname))
-   os.remove(pnmname)
-   os.remove(pngimg)
-   '''
+ 
 
 def simplify(sketch_np_array, imgbasename):
    t0 = time.time()
@@ -111,7 +109,12 @@ def simplify(sketch_np_array, imgbasename):
       print("GPU :",torch.cuda.get_device_name(0))
       print('Initial GPU Usage')
       gpu_usage()
-      #pred = model.cuda().forward(data.cuda()).float()
+      '''
+      GPU 사용할거면 아래 코드 주석 해제하고, 그 밑에 pred를 주석처리 할 것.
+      GPU 사용 시 속도는 빠르나 CUDA out of memory 에러 생겨서 계속 재시작 해줘야함
+      잘 모를 경우 그냥 pred = model.forward(data)코드 사용 권장
+      '''
+      # pred = model.cuda().forward(data.cuda()).float()
       pred = model.forward(data)
    else:
       pred = model.forward(data)

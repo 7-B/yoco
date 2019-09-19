@@ -51,6 +51,7 @@ def coloring():
 @app.after_request
 def add_header(r):
     """
+    캐시 비워주는 함수
     Add headers to both force latest IE rendering engine or Chrome Frame,
     and also to cache the rendered page for 10 minutes.
     """
