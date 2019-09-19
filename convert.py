@@ -60,8 +60,8 @@ def sketch(path, imgname):
    '''
    # Extract img basename without extesnsion (ex: test.png -> test)
    imgbasename = os.path.basename(imgname).split('.')[0]     
-   #load image
-   frame = cv2.imread(path,0)   
+   #load image from static/input
+   frame = cv2.imread(path,0)
    # resize to prevent CUDA out of memory
    frame = image_resize(frame,height=512) 
    #Blur it to remove noise
@@ -110,7 +110,7 @@ def simplify(sketch_np_array, imgbasename):
       print('Initial GPU Usage')
       gpu_usage()
       '''
-      GPU 사용할거면 아래 코드 주석 해제하고, 그 밑에 pred를 주석처리 할 것.
+      GPU 사용할거면 아래 mode.cuda() 코드 주석 해제하고, 그 밑에 pred를 주석처리 할 것.
       GPU 사용 시 속도는 빠르나 CUDA out of memory 에러 생겨서 계속 재시작 해줘야함
       잘 모를 경우 그냥 pred = model.forward(data)코드 사용 권장
       '''
@@ -133,6 +133,18 @@ def simplify(sketch_np_array, imgbasename):
 def convert_to_line(imgname):
    if not os.path.exists('static/input'):
       os.mkdir('static/input')
+
+   # 웹에서 이미지를 받아 올 경우, img의 경로가 static/input에 저장된다.   
    img_path = os.path.join('static/input', imgname)
+
+   #웹이 아닌 convert.py를 Unit Test 할 경우, static/input을 추가해 줄 필요가 없으므로 아래 주석을 해제한다.
+   #img_path = imgname
+
    sketch_npArray, img_base_name = sketch(img_path, imgname)
    simplify(sketch_npArray, img_base_name) #create out.png in current directory
+
+# 웹 페이지 말고, 단순히 svg 파일만 생성되는지 결과만 보고 싶으면 아래 코드 주석을 해제하고 convert.py를 실행할 것.
+# 웹 페이지에서 구현을 할 때에는 아래 코드 주석처리 해야함
+# 테스트 이미지(현재 ponix.jpg)는 반드시 convert.py와 같은 경로에 있어야 함
+# 테스트 결과물인 ponix.svg 파일은 static/output 경로에 생성됨
+# convert_to_line('ponix.jpg')
