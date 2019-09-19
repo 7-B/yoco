@@ -74,9 +74,15 @@ $ python app.py
 http://0.0.0.0:8000/ 에 접속하여 웹 페이지에 나와있는 가이드를 따라 테스트 해본다. 이미지를 넣으면 약 10초후 페이지가 바뀌며, 색칠할 수 있는 컬러링북이 생성된다. 
 ```
 
-## Deployment(Web)  
+## Pattern  
+- [Demo Video](https://youtu.be/jX-nO-Tvo8Q)  
+- 이미지를 전처리(Segmentation, Style Transfer)하여 원하는 부위에 패턴을 입힙니다.        
+- 작성 예정(진예진)    
 
-Add additional notes about how to deploy this on a live system
+
+## Deployment(Web 배포)   
+- 작성 예정(이세원)  
+
 
 ## Built With
 
