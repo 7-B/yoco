@@ -39,9 +39,13 @@ def github():
 @app.route('/coloring', methods=['POST', 'GET'])
 def coloring():
     global filename
-    filename = filename.split('/')[-1]
-    filename = filename.split('.')[0] + '.svg'
-    filename = os.path.join('output/',filename)
+    try:
+        filename = filename.split('/')[-1]
+        filename = filename.split('.')[0] + '.svg'
+        filename = os.path.join('output/',filename)
+    except Exception as ex: # 에러 종류Exception:
+        print(ex)
+
     return render_template('coloring.html', file_name = filename)
 
 @app.after_request
