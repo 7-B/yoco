@@ -60,13 +60,18 @@ $ conda install -c bioconda potrace
 
 ## Running the tests
 
+
 move to yoco project root and run example.
 
 ```
 # 웹페이지 실행
+$ conda activate yoco
 $ cd yoco
+
+# VScode, Pycharm, Vim 등 파이썬을 사용할 수 있는 에디터에서 app.py를 실행한다.
+# 단, Python Interpreter는 아까 만들었던 yoco 가상환경이어야 한다.  
 $ python app.py
-http://0.0.0.0:8000/ 에 접속하여 웹 페이지에 나와있는 가이드를 따른다.  
+http://0.0.0.0:8000/ 에 접속하여 웹 페이지에 나와있는 가이드를 따라 테스트 해본다. 이미지를 넣으면 약 10초후 페이지가 바뀌며, 색칠할 수 있는 컬러링북이 생성된다. 
 ```
 
 ## Deployment(Web)  
