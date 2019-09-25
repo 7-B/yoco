@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="https://141.223.140.22"><img src="https://github.com/7-B/yoco/blob/modify-readme/YOCO-logo.png" alt="YOCO" width="200"><a>
+  <a href="https://141.223.140.22"><img src="img/YOCO-logo.png" alt="YOCO" width="200"><a>
   <br>
 </h1>
 
