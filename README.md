@@ -15,6 +15,7 @@
 
 ## Development Environments  
 - OS : Unutn 16.04 LTS  
+- ImageMagick   
 - Editor : VScode  
 - Virtual Envrionment : Anaconda  
 
