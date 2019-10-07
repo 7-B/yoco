@@ -14,7 +14,7 @@
 <h4 align="center"> 사용자가 정한 이미지로 컬러링북을 제작합니다.</h4>
 
 ## Development Environments  
-- OS : Ubutn 16.04 LTS  
+- OS : Ubuntu 16.04 LTS  
 - ImageMagick   
 - Editor : VScode, Pycharm, Vim     
 - Virtual Envrionment : Anaconda  
